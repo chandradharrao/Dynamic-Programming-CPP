@@ -21,14 +21,17 @@ long long fib(int n,std::unordered_map<int,long long int>& memo){
     return memo[n];
 }
 
+long long fib(int n){
+    //create map
+    std::unordered_map<int,long long int> memo = {};
+    return fib(n,memo);
+}
+
 int main(){
     int n;
     std::cin >> n;
     std::cout << "Fib("<<n<<") = ";
-    //create map
-    std::unordered_map<int,long long int> memo = {};
 
-    std::cout << fib(n,memo) << std::endl;
-   // printf("Fib(%d)=%lld",n,fib(n,memo));
+    std::cout << fib(n) << std::endl;
     return 0;
 }
