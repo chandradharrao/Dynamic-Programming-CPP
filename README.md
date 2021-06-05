@@ -1,7 +1,5 @@
 # Dynamic-Programming-CPP
 
-Implementation of Recursive and Memoized solutions of problems asked in Interviews in CPP.
+Implementation of Recursive and Memoized solutions of problems asked in Interviews.
 
-The names of the problems implemented are : 
-
- 
+Contains both Javascript and C++ implementations of the same.
