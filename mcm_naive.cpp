@@ -9,10 +9,10 @@ using namespace std;
 
 //dimArr indices : {0,1,2,.....,N} => size = N+1
 int util(vector<int> dimArr,int l,int r){
-    //the cost of multiplying single matrix is 0
+    //the cost of multiplying single matrix is 0 -> base case
     if(l == r || l > r) return 0;
 
-    //minimum cost and index of splitting
+    //minimum cost
     int min_cost = INT16_MAX;
     int min_index = INT16_MAX;
 
@@ -20,14 +20,12 @@ int util(vector<int> dimArr,int l,int r){
     for(int k = l;k<r;k++){
         int rightCost = util(dimArr,l,k);
         int leftCost = util(dimArr,k+1,r);
-        int currCost = dimArr[l]*dimArr[k]*dimArr[r];
+        int currCost = dimArr[l-1]*dimArr[k]*dimArr[r];
         int totalCost =  rightCost + leftCost + currCost;
         
-        if(totalCost < min_cost) min_index = k;
+        min_cost = min(totalCost,min_cost);
     }
-
-    cout << "The min cost is "<< min_cost << endl;
-    return min_index;
+    return min_cost;
 }
 
 //if N matrixes,then dim array will have N+1 entries
@@ -37,5 +35,7 @@ int mcm(vector<int> dimArr){
 }
 
 int main(){
-
+    vector<int> arr = { 1,2,3,4,3 };
+    int res = mcm(arr);
+    cout << "Min num of mult is " << res << endl;
 }
